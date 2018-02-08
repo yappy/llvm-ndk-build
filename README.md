@@ -3,12 +3,5 @@
 ## Depends
 * git
 * cmake
-* build-essential
-
-## How to build
-```
-$ git clone <this-repository-url>
-$ mkdir build
-$ cd build
-$ cmake ../llvm-ndk-build
-```
+* build-essential (make)
+* ndk (from android official site)
