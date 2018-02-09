@@ -1,8 +1,3 @@
-# Example
-```
-cmake -DCMAKE_TOOLCHAIN_FILE=/opt/ndk-bundle/build/cmake/android.toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_INCLUDE_TESTS=Off -DLLVM_INCLUDE_EXAMPLES=Off -DLLVM_TABLEGEN=`readlink -f ../build/bin/llvm-tblgen` -DANDROID_STL=c++_shared -DANDROID_ALLOW_UNDEFINED_SYMBOLS=On ../llvm
-```
-
 # Memo
 ## so の未定義シンボルを許す
 LLVM は未定義シンボルを残したままの so を作るので
@@ -14,13 +9,13 @@ cmake variable を有効にして ld --no-undefined をつけさせないよう�
 * man ld の --no-undefined
 * make (-jX) VERBOSE=1
 
-## <cstdio> や <fstream> でエラー
+## \<cstdio\> や \<fstream\> でエラー
 https://github.com/android-ndk/ndk/issues/480
 * NDK r16b PLATFORM=android-14 でエラー
-** android-24 ではビルド成功
+  * android-24 ではビルド成功
 * NDK r15c PLATFORM=android-14 でもエラー内容は違うが死 (issues は同じ)
-** API Level 24 (Android 7.0) 以上限定はまだきつい
+  * API Level 24 (Android 7.0) 以上限定はまだきつい
 * NDK r14b では CMake 3.6 でないと 3.7+ での非互換変更のせいでコンパイラチェックで失敗
-** gcc を clang のオプションで動かそうとしてしまう
-** CMake を 3.6 にするか r15 での修正をバックポートする
-** 一応これで android-14 でもビルド成功
+  * gcc を clang のオプションで動かそうとしてしまう
+  * CMake を 3.6 にするか r15 での修正をバックポートする
+  * 一応これで android-14 でもビルド成功
