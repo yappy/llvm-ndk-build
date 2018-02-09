@@ -9,3 +9,4 @@ fi
 # directories
 SRC_DIR="llvm"
 BUILD_HOST_DIR="build-host"
+BUILD_ANDROID_DIR="build-android"
